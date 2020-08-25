@@ -36,10 +36,10 @@ public class Dashboard extends HttpServlet {
 		String userid = null;
 		if(session == null) {
 			out.println("<h1>No user id was found in this session</h1><br>");
-			System.out.println("The session is null");
+			//System.out.println("The session is null");
 		}else {
 			userid = (String) session.getAttribute("userid");
-			System.out.println("The session is not null");
+			//System.out.println("The session is not null");
 			out.println("<h1>user id obtained from session is "+userid+"</h1>");
 		}
 		
