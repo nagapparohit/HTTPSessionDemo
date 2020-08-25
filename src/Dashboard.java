@@ -32,17 +32,27 @@ public class Dashboard extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		out.println("<html><body>");
-		HttpSession  session = request.getSession(false);
+		HttpSession session = request.getSession(false);
 		String userid = null;
-		
-		if(session.getAttribute("userid") != null) {
-			userid  = (String) session.getAttribute("userid");
-		}
-		if(userid==null){
+		if(session == null) {
 			out.println("<h1>No user id was found in this session</h1><br>");
+			System.out.println("The session is null");
 		}else {
+			userid = (String) session.getAttribute("userid");
+			System.out.println("The session is not null");
 			out.println("<h1>user id obtained from session is "+userid+"</h1>");
 		}
+		
+		/*
+		 * System.out.println("The session is : "+session.toString()); 
+		 * if(session !=
+		 * null) { userid = (String) session.getAttribute("userid"); }
+		 */
+		/*
+		 * if(userid==null){
+		 * out.println("<h1>No user id was found in this session</h1><br>"); }else {
+		 * out.println("<h1>user id obtained from session is "+userid+"</h1>"); }
+		 */
 		out.println("</body></html>");
 	}
 
